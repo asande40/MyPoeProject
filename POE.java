@@ -2,19 +2,30 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.mycompany.poe;
-import java.util.Scanner;
+package com.mycompany.mypoe;
+
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import java.util.Scanner;
+import javax.swing.JDialog;
+
 /**
  *
  * @author RC_Student_lab
  */
-public class POE {
-
+public class MyPoe{
+private static int taskCount = 0; // To keep track of the number of tasks
+    private static ArrayList<String> tasks = new ArrayList<>(); // List to store task details
     public static void main(String[] args) {
-     Login login=new Login();
+     MyLogin login=new MyLogin();
+    MyTask task = new MyTask();
+   
+     
     
      Scanner input = new Scanner(System.in);
+        JDialog dialog = new JDialog();
+        
+        dialog.setAlwaysOnTop(true);
      
      System.out.print("Enter your name :");
      String name = input.next();
@@ -31,11 +42,31 @@ public class POE {
     String user = input.next();
     System.out.println("Enter your login password :");
     String pass = input.next();
-    System.out.print(login.returnLoginStatus(login.loginUser(user, pass)));
+    
+    boolean checkLogin = login.loginUser(user, pass);
+    System.out.print(login.returnLoginStatus(checkLogin) );
     
     
-   
+    if(checkLogin){
+       int choice = task.displayMainMenu();
+            switch (choice) {
+                case 0:
+                    task.addTasks();
+                    break;
+                case 1:
+                    task.showComingSoon();
+                    dialog.dispose();
+                    break;
+                case 2:
+                    task.quitApplication();
+                    dialog.dispose();
+                    break;
+                default:
+                    break;
+     }
+        
+         
 }
    
-    
+    }    
 }
