@@ -45,28 +45,8 @@ private static int taskCount = 0; // To keep track of the number of tasks
     
     boolean checkLogin = login.loginUser(user, pass);
     System.out.print(login.returnLoginStatus(checkLogin) );
-    
-    
-    if(checkLogin){
-       int choice = task.displayMainMenu();
-            switch (choice) {
-                case 0:
-                    task.addTasks();
-                    break;
-                case 1:
-                    task.showComingSoon();
-                    dialog.dispose();
-                    break;
-                case 2:
-                    task.quitApplication();
-                    dialog.dispose();
-                    break;
-                default:
-                    break;
-     }
-        
-         
-}
-   
-    }    
+    tester.displayWelcomeMessage();
+    tester.showMainMenu();
+    dialog.dispose();
+     }    
 }
