@@ -35,7 +35,7 @@ private static int taskCount = 0; // To keep track of the number of tasks
      String lastname = input.next();
      System.out.print("Enter your username :");
      String username = input.next();
-     System.out.print("Enter your password :");
+     System.out.print("Enter your password:");
      String password = input.next();
      
     System.out.print(login.registerUser(name, lastname, username, password)); 
