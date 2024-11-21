@@ -4,6 +4,7 @@
 
 package com.mycompany.mypoe;
 
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import java.util.Scanner;
@@ -20,7 +21,7 @@ private static int taskCount = 0; // To keep track of the number of tasks
      MyLogin login=new MyLogin();
     MyTask task = new MyTask();
     MyTask tester = new MyTask();
-   
+   part3 part = new part3();
      
     
      Scanner input = new Scanner(System.in);
@@ -47,10 +48,27 @@ private static int taskCount = 0; // To keep track of the number of tasks
     boolean checkLogin = login.loginUser(user, pass);
     System.out.print(login.returnLoginStatus(checkLogin) );
     
-    tester.displayWelcomeMessage();
-    tester.showMainMenu();
-    dialog.dispose();
+     while (true) {
+            // Display Main Menu and get user's choice
+            int menuOption = part.showMainMenu();
+
+            // Execute based on user input
+            switch (menuOption) {
+                case 1:
+                    part.addTask();
+                    break;
+                case 2:
+                    part.showReportMenu();
+                    break;
+                case 3:
+                    part.quitProgram();
+                    return;  // Exit program
+                default:
+                    part.showInvalidOptionMessage();
+                    break;
+            }
+        }
    
-   
-    }    
+  
+    }     
 }
