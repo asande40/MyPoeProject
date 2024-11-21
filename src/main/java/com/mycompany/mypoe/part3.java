@@ -215,7 +215,7 @@ public class part3 {
     }
 
     public void searchTaskByName() {
-        String searchName = JOptionPane.showInputDialog("Enter the Task Name to search:");
+        String searchName = JOptionPane.showInputDialog("Enter the Task Name to search [Eg Task 1]:");
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < taskNames.size(); i++) {
             if (taskNames.get(i).equalsIgnoreCase(searchName)) {
@@ -232,7 +232,7 @@ public class part3 {
     }
 
      public void searchTasksByDeveloper() {
-        String developerSearch = JOptionPane.showInputDialog("Enter the Developer Name to search:");
+        String developerSearch = JOptionPane.showInputDialog("Enter the Developer Name and Surname to search:");
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < developers.size(); i++) {
             if (developers.get(i).equalsIgnoreCase(developerSearch)) {
@@ -245,7 +245,7 @@ public class part3 {
     }
 
     public void deleteTask() {
-        String taskToDelete = JOptionPane.showInputDialog("Enter the Task Name to delete:");
+        String taskToDelete = JOptionPane.showInputDialog("Enter the Task Name to delete [Eg Task 1]:");
         boolean taskDeleted = false;
         for (int i = 0; i < taskNames.size(); i++) {
             if (taskNames.get(i).equalsIgnoreCase(taskToDelete)) {
